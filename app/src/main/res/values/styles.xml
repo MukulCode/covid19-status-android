@@ -16,5 +16,12 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="fontFamily">@font/metropolis_medium</item>
     </style>
+    <style name="MainButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Button</item>
+    </style>
 
 </resources>

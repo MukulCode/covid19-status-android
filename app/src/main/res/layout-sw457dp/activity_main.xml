@@ -513,6 +513,25 @@
 
                 </GridLayout>
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                tools:ignore="NestedWeights">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/testMeNow"
+                    style="@style/MainButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="0dp"
+                    android:text="Test Me Now !!"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"/>
+            </RelativeLayout>
         </LinearLayout>
 
     </LinearLayout>

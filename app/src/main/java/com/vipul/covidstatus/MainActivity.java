@@ -11,6 +11,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         textView_tests_new = findViewById(R.id.tests_new_textView);
         swipeRefreshLayout = findViewById(R.id.main_refreshLayout);
         textview_time = findViewById(R.id.time_textView);
+        Button testMe = findViewById(R.id.testMeNow);
+
 
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         Objects.requireNonNull(getSupportActionBar()).setTitle("Covid-19 Status (India)");
@@ -102,6 +106,24 @@ public class MainActivity extends AppCompatActivity {
         if (isFirstStart || !appVersion.equals(BuildConfig.VERSION_NAME)){
             showChanges();
         }
+
+        testMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i;
+                PackageManager manager = getPackageManager();
+                try {
+                    i = manager.getLaunchIntentForPackage("com.theindianappguy.covid19detector");
+                    if (i == null)
+                        throw new PackageManager.NameNotFoundException();
+                    i.addCategory(Intent.CATEGORY_LAUNCHER);
+                    startActivity(i);
+                } catch (PackageManager.NameNotFoundException e) {
+
+                }
+
+            }
+        });
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
